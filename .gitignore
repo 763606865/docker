@@ -1,0 +1,11 @@
+/mysql/data/
+/mysql/logs/
+/redis/data/
+/rabbitmq/data/
+/rabbitmq/logs/
+/nginx/conf/
+/mongodb/db/
+/dynamodb/db/
+/rabbitmq/data/
+/rabbitmq/logs/
+/zookeeper/

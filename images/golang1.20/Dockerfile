@@ -1,0 +1,3 @@
+FROM golang:1.20
+
+EXPOSE 8000
