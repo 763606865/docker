@@ -96,9 +96,12 @@ services:
     container_name: php
     ports:
       - "9000:9000"
+      - "9501:9501"
     volumes:
       - ${HOME}/docker-workspace/www/code:/var/www/html
       - ${HOME}/docker/php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+    environment:
+      TZ: Asia/Shanghai
     links:
       - redis
       - mysql
