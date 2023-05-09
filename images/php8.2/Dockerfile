@@ -1,22 +1,8 @@
 FROM php:8.1.16-fpm
 RUN apt-get update
-RUN apt-get -y upgrade
-RUN apt-get install -y zlib1g-dev
-RUN apt-get install -y libpng-dev
-RUN apt-get install -y libicu-dev --fix-missing
-RUN apt-get install -y libzip-dev
-RUN apt-get install -y libssl-dev
-RUN apt-get install -y libsnmp-dev
-RUN apt-get install -y librdkafka-dev
-RUN apt-get install -y libtool
-RUN apt-get install -y automake
-RUN apt-get install -y libcppunit-dev
-RUN apt-get install -y vim
-RUN apt-get install -y wget
-RUN apt-get install -y librabbitmq-dev
-RUN apt-get install -y libzookeeper-mt-dev
-RUN apt-get install -y libmongoc-dev
-RUN apt-get install -y libcurl4-openssl-dev
+RUN apt-get install -y zlib1g-dev libpng-dev libicu-dev libzip-dev libssl-dev libsnmp-dev
+RUN apt-get install -y librdkafka-dev libtool automake libcppunit-dev
+RUN apt-get install -y vim wget librabbitmq-dev libzookeeper-mt-dev libmongoc-dev
 RUN mkdir -p /usr/src/php/ext/redis && curl -L "https://pecl.php.net/get/redis-5.3.7.tgz" | tar xvz -C /usr/src/php/ext/redis --strip 1
 RUN mkdir -p /usr/src/php/ext/xdebug && curl -L "https://github.com/xdebug/xdebug/archive/3.1.0.tar.gz" | tar xvz -C /usr/src/php/ext/xdebug --strip 1
 RUN mkdir -p /usr/src/php/ext/kafka && curl -L "https://pecl.php.net/get/rdkafka-6.0.3.tgz" | tar xvz -C /usr/src/php/ext/kafka --strip 1
