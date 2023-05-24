@@ -33,7 +33,7 @@ RUN docker-php-ext-install bcmath
 RUN docker-php-ext-install snmp
 RUN docker-php-ext-install redis
 RUN docker-php-ext-install pcntl
-RUN docker-php-ext-install xdebug
+# RUN docker-php-ext-install xdebug
 RUN docker-php-ext-install kafka
 RUN docker-php-ext-install amqp
 RUN docker-php-ext-install zookeeper

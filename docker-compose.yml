@@ -142,9 +142,11 @@ services:
     links:
       - php
       - php73
+      - php82
     depends_on:
       - php
       - php73
+      - php82
   php73:
     image: php73
     container_name: php73
@@ -153,6 +155,30 @@ services:
     volumes:
       - ${HOME}/docker-workspace/www/code:/var/www/html
       - ${HOME}/docker/php/uploads73.ini:/usr/local/etc/php/conf.d/uploads.ini
+    environment:
+      TZ: Asia/Shanghai
+    links:
+      - redis
+      - mysql
+      - mongo
+      - zookeeper
+      - rabbitmq
+      - consul
+    depends_on:
+      - redis
+      - mysql
+      - mongo
+      - zookeeper
+      - rabbitmq
+      - consul
+  php82:
+    image: php82
+    container_name: php82
+    ports:
+      - "9002:9000"
+    volumes:
+      - ${HOME}/docker-workspace/www/code:/var/www/html
+      - ${HOME}/docker/php/uploads82.ini:/usr/local/etc/php/conf.d/uploads.ini
     environment:
       TZ: Asia/Shanghai
     links:
