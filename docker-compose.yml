@@ -55,7 +55,6 @@ services:
       - "15672:15672"
       - "5672:5672"
     hostname: rabbitmq
-    restart: always
     environment:
       RABBITMQ_DEFAULT_USER: admin
       RABBITMQ_DEFAULT_PASS: admin
@@ -155,6 +154,30 @@ services:
     volumes:
       - ${HOME}/docker-workspace/www/code:/var/www/html
       - ${HOME}/docker/php/uploads73.ini:/usr/local/etc/php/conf.d/uploads.ini
+    environment:
+      TZ: Asia/Shanghai
+    links:
+      - redis
+      - mysql
+      - mongo
+      - zookeeper
+      - rabbitmq
+      - consul
+    depends_on:
+      - redis
+      - mysql
+      - mongo
+      - zookeeper
+      - rabbitmq
+      - consul
+  php74:
+    image: php74
+    container_name: php74
+    ports:
+      - "9003:9000"
+    volumes:
+      - ${HOME}/docker-workspace/www/code:/var/www/html
+      - ${HOME}/docker/php/uploads74.ini:/usr/local/etc/php/conf.d/uploads.ini
     environment:
       TZ: Asia/Shanghai
     links:
