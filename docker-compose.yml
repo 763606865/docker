@@ -122,6 +122,7 @@ services:
       - zookeeper
       - rabbitmq
       - consul
+      - gotenberg
     depends_on:
       - redis
       - mysql
@@ -129,6 +130,7 @@ services:
       - zookeeper
       - rabbitmq
       - consul
+      - gotenberg
   nginx:
     image: ljl763606865/nginx
     container_name: nginx
@@ -170,30 +172,6 @@ services:
       - zookeeper
       - rabbitmq
       - consul
-  php74:
-    image: php74
-    container_name: php74
-    ports:
-      - "9003:9000"
-    volumes:
-      - ${HOME}/docker-workspace/www/code:/var/www/html
-      - ${HOME}/docker/php/uploads74.ini:/usr/local/etc/php/conf.d/uploads.ini
-    environment:
-      TZ: Asia/Shanghai
-    links:
-      - redis
-      - mysql
-      - mongo
-      - zookeeper
-      - rabbitmq
-      - consul
-    depends_on:
-      - redis
-      - mysql
-      - mongo
-      - zookeeper
-      - rabbitmq
-      - consul
   php82:
     image: php82
     container_name: php82
@@ -218,3 +196,10 @@ services:
       - zookeeper
       - rabbitmq
       - consul
+  gotenberg:
+    image: gotenberg/gotenberg:7
+    container_name: gotenberg
+    ports:
+      - "3000:3000"
+    environment:
+      TZ: Asia/Shanghai
