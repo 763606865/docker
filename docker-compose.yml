@@ -197,9 +197,17 @@ services:
       - rabbitmq
       - consul
   gotenberg:
-    image: gotenberg/gotenberg:7
+    image: gotenberg/gotenberg:7.9.1
     container_name: gotenberg
     ports:
       - "3000:3000"
+    extra_hosts:
+      - iguoceorgan.stac.fun:10.21.30.46
+      - iguocec.stac.fun:10.21.30.46
+      - helium.stac.fun:10.20.52.108
     environment:
       TZ: Asia/Shanghai
+      LANG: zh_CN.UTF-8
+      LANGUAGE: zh_CN:de
+      LC_ALL: zh_CN.UTF-8
+    

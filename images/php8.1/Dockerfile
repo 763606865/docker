@@ -17,6 +17,7 @@ RUN apt-get install -y librabbitmq-dev
 RUN apt-get install -y libzookeeper-mt-dev
 RUN apt-get install -y libmongoc-dev
 RUN apt-get install -y libcurl4-openssl-dev
+RUN apt-get install -y libgmp-dev
 RUN mkdir -p /usr/src/php/ext/redis && curl -L "https://pecl.php.net/get/redis-5.3.7.tgz" | tar xvz -C /usr/src/php/ext/redis --strip 1
 RUN mkdir -p /usr/src/php/ext/xdebug && curl -L "https://github.com/xdebug/xdebug/archive/3.1.0.tar.gz" | tar xvz -C /usr/src/php/ext/xdebug --strip 1
 RUN mkdir -p /usr/src/php/ext/kafka && curl -L "https://pecl.php.net/get/rdkafka-6.0.3.tgz" | tar xvz -C /usr/src/php/ext/kafka --strip 1
@@ -37,6 +38,7 @@ RUN docker-php-ext-install xdebug
 RUN docker-php-ext-install kafka
 RUN docker-php-ext-install amqp
 RUN docker-php-ext-install zookeeper
+RUN docker-php-ext-install gmp
 RUN pecl install mongodb &&  echo "extension=mongodb.so" > $PHP_INI_DIR/conf.d/docker-php-ext-mongodb.ini
 RUN pecl install swoole && echo "extension=swoole.so" > $PHP_INI_DIR/conf.d/docker-php-ext-swoole.ini
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
