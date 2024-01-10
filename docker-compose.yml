@@ -101,6 +101,14 @@ services:
       - "8600:8600"
     volumes:
       - ${HOME}/docker/consul/data:/consul/data
+  elasticsearch:
+    image: elasticsearch:8.11.3
+    container_name: elasticsearch
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      discovery.type: single-node
   php:
     image: ljl763606865/php-fpm
     container_name: php
@@ -123,6 +131,7 @@ services:
       - rabbitmq
       - consul
       - gotenberg
+      - elasticsearch
     depends_on:
       - redis
       - mysql
@@ -131,6 +140,7 @@ services:
       - rabbitmq
       - consul
       - gotenberg
+      - elasticsearch
   nginx:
     image: ljl763606865/nginx
     container_name: nginx
@@ -165,6 +175,7 @@ services:
       - zookeeper
       - rabbitmq
       - consul
+      - elasticsearch
     depends_on:
       - redis
       - mysql
@@ -172,6 +183,7 @@ services:
       - zookeeper
       - rabbitmq
       - consul
+      - elasticsearch
   php82:
     image: php82
     container_name: php82
@@ -189,6 +201,7 @@ services:
       - zookeeper
       - rabbitmq
       - consul
+      - elasticsearch
     depends_on:
       - redis
       - mysql
@@ -196,6 +209,7 @@ services:
       - zookeeper
       - rabbitmq
       - consul
+      - elasticsearch
   gotenberg:
     image: gotenberg/gotenberg:7.9.1
     container_name: gotenberg
@@ -210,4 +224,3 @@ services:
       LANG: zh_CN.UTF-8
       LANGUAGE: zh_CN:de
       LC_ALL: zh_CN.UTF-8
-    

@@ -40,8 +40,10 @@ RUN docker-php-ext-install amqp
 RUN docker-php-ext-install zookeeper
 RUN docker-php-ext-install gmp
 RUN pecl install mongodb &&  echo "extension=mongodb.so" > $PHP_INI_DIR/conf.d/docker-php-ext-mongodb.ini
-RUN pecl install swoole && echo "extension=swoole.so" > $PHP_INI_DIR/conf.d/docker-php-ext-swoole.ini
-RUN pecl install xlswriter && echo "extension=xlswriter.so" > $PHP_INI_DIR/conf.d/docker-php-ext-xlswriter.ini
+RUN pecl install -D 'enable-sockets="yes" enable-openssl="yes" enable-mysqlnd="no" \
+enable-curl="yes" enable-cares="no" enable-brotli="no" enable-PostgreSQL-database="no" \
+enable-ODBC-database="no" enable-Oracle-database="no" enable-Sqlite-database="no"' swoole && echo "extension=swoole.so" > $PHP_INI_DIR/conf.d/docker-php-ext-swoole.ini
+RUN pecl install -D 'enable-reader="yes"' xlswriter && echo "extension=xlswriter.so" > $PHP_INI_DIR/conf.d/docker-php-ext-xlswriter.ini
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 #
 #RUN mkdir /etc/yum.repos.d \
