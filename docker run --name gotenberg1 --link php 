@@ -1,1 +1,0 @@
-docker run --name gotenberg --add-host='iguoceorgan.stac.fun:10.21.30.46' --add-host='iguocec.stac.fun:10.21.30.46' --add-host='helium.stac.fun:10.20.52.108' -it -d gotenberg/gotenberg:7
