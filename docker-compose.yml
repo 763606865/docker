@@ -212,6 +212,34 @@ services:
       - consul
       - elasticsearch
       - sentry
+  php83:
+    image: php83
+    container_name: php83
+    ports:
+      - "9083:9000"
+    volumes:
+      - ${HOME}/docker-workspace/www/code:/var/www/html
+      - ${HOME}/docker/php/uploads82.ini:/usr/local/etc/php/conf.d/uploads.ini
+    environment:
+      TZ: Asia/Shanghai
+    links:
+      - redis
+      - mysql
+      - mongo
+      - zookeeper
+      - rabbitmq
+      - consul
+      - elasticsearch
+      - sentry
+    depends_on:
+      - redis
+      - mysql
+      - mongo
+      - zookeeper
+      - rabbitmq
+      - consul
+      - elasticsearch
+      - sentry
   gotenberg:
     image: gotenberg/gotenberg:7.9.1
     container_name: gotenberg
