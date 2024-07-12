@@ -1,4 +1,3 @@
-version: '3'
 networks:
   zookeeper_network:
     driver: bridge
@@ -102,11 +101,13 @@ services:
     volumes:
       - ${HOME}/docker/consul/data:/consul/data
   elasticsearch:
-    image: elasticsearch:8.11.3
+    image: bitnami/elasticsearch
     container_name: elasticsearch
     ports:
       - "9200:9200"
       - "9300:9300"
+    volumes:
+      - ${HOME}/docker/elasticsearch/data:/bitnami/elasticsearch/data
     environment:
       discovery.type: single-node
   nginx:
@@ -189,6 +190,10 @@ services:
       - "9502:9502"
       - "9503:9503"
       - "9504:9504"
+      - "8501:8501"
+      - "8502:8502"
+      - "8503:8503"
+      - "8504:8504"
     volumes:
       - ${HOME}/docker-workspace/www/code:/var/www/html
       - ${HOME}/docker/php/uploads82.ini:/usr/local/etc/php/conf.d/uploads.ini

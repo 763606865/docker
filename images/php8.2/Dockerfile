@@ -44,6 +44,7 @@ RUN docker-php-ext-install kafka
 RUN docker-php-ext-install amqp
 RUN docker-php-ext-install zookeeper
 RUN docker-php-ext-install gmp
+RUN docker-php-ext-install bcmath
 RUN pecl install mongodb &&  echo "extension=mongodb.so" > $PHP_INI_DIR/conf.d/docker-php-ext-mongodb.ini
 RUN pecl install excimer &&  echo "extension=excimer.so" > $PHP_INI_DIR/conf.d/docker-php-ext-excimer.ini
 RUN pecl install -D 'enable-sockets="yes" enable-openssl="yes" enable-mysqlnd="no" \
