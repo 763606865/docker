@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$USER_HOME$/docker-workspace/www/code/sdic-iguopin4.0/upgrade/sql/2024-07-15.sql" dialect="MySQL" />
+    <file url="file://$USER_HOME$/docker-workspace/www/code/sdic-iguopin4.0/upgrade/sql/2024-09-25.sql" dialect="MySQL" />
+  </component>
+</project>

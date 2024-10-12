@@ -101,7 +101,7 @@ services:
     volumes:
       - ${HOME}/docker/consul/data:/consul/data
   elasticsearch:
-    image: bitnami/elasticsearch
+    image: bitnami/elasticsearch:8.12.0
     container_name: elasticsearch
     ports:
       - "9200:9200"
@@ -132,6 +132,7 @@ services:
     container_name: php73
     ports:
       - "9073:9000"
+      - "9515:9515"
     volumes:
       - ${HOME}/docker-workspace/www/code:/var/www/html
       - ${HOME}/docker/php/uploads73.ini:/usr/local/etc/php/conf.d/uploads.ini
