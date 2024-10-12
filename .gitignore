@@ -9,3 +9,4 @@
 /rabbitmq/data/
 /rabbitmq/logs/
 /zookeeper/
+/elasticsearch/
