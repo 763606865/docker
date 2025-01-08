@@ -57,5 +57,12 @@
       <jdbc-url>jdbc:mysql://pc-2ze0coan3pgqqd9yd.rwlb.rds.aliyuncs.com:3306/nbds</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="Local PostgreSQL" uuid="91bfb85d-80ec-4ed4-8afd-bf4cc1611823">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
